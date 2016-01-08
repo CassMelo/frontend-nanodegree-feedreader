@@ -116,24 +116,23 @@ $(function() {
          */
 
             var selectedNewsName,
-                newSelectedNewsName,
-                myElement = $('.header-title');
+                newSelectedNewsName
 
             beforeEach(function(done){
 
                 //calls loadFeed for the first item
                 loadFeed(0,function(){
-                                // gets the name selected
-                                selectedNewsName = myElement.html();
-                                done();
-                            });
+                    // gets the name selected
+                    selectedNewsName = $('.entry').text();
 
-                // change the load feed selection
-                loadFeed(3,function(){
-                                // gets the new name selected
-                                newSelectedNewsName = myElement.html();
-                                done();
-                            });
+                    // change the load feed selection
+                    loadFeed(3,function(){
+                        // gets the new name selected
+                        newSelectedNewsName = $('.entry').text();
+                        done();
+                    });
+                });
+
             });
 
         it('New Feed Loaded',function(done){
